@@ -35,7 +35,7 @@ const NuevoUsuario = ({ show, onHide }) => {
     setPassword('');
     setRolId('');
     setStatus(false);
-    
+    onHide();
   }
 
   return (

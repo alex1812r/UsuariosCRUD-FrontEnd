@@ -18,6 +18,7 @@ const EditarUsuario = ({ show, onHide }) => {
   const usuario = useSelector(state => state.usuario.usuario.data);
   const roles = useSelector(state => state.rol.listado.data);
   const loading = useSelector(state => state.usuario.usuario.loading);
+  const loadingSending = useSelector(state => state.usuario.loading);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -103,7 +104,7 @@ const EditarUsuario = ({ show, onHide }) => {
                     <Form.Group>
                       <Form.Label><br /></Form.Label>
                       {
-                        loading ?
+                        loadingSending ?
                           <div className="d-flex justify-content-center">
                             <Spinner size="sm" /> 
                           </div>

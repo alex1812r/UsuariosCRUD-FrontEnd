@@ -148,6 +148,10 @@ export default function(state = initialState, action) {
         listado: {
           ...state.listado,
           data: state.listado.data.filter(user => user._id !== action.payload)
+        },
+        usuario: {
+          ...state.usuario,
+          data: null
         }
       };
     case ELIMINAR_USUARIO_ERROR:

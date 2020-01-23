@@ -1,11 +1,22 @@
-import React, { useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Table } from 'react-bootstrap';
+// import MostrarRol from './MostrarRol';
+import EditarRol from './EditarRol';
 import { useDispatch, useSelector } from 'react-redux';
-import { buscarListaRolesAction } from '../../redux/rol/actions';
+import { buscarListaRolesAction, buscarRolAction } from '../../redux/rol/actions';
 
 const ListaRoles = () => {
   // DISPATCH
   const dispatch = useDispatch();
+  
+  // STATE LOCAL
+  const [showMostrarRol, setShowMostrarRol] = useState(false);
+  const onShow = (id) => {
+    dispatch(buscarRolAction(id));
+    setShowMostrarRol(true);
+  }
+  const onHide = () => setShowMostrarRol(false);
+
   // STATE REDUX
   const roles = useSelector(state => state.rol.listado.data);
 
@@ -29,7 +40,9 @@ const ListaRoles = () => {
             <tr key={rol._id}>
               <td>{ rol._id }</td>
               <td>
-                <button className="boton-link btn-link">
+                <button 
+                  onClick={() => onShow(rol._id)}
+                  className="boton-link btn-link">
                   { rol.name }
                 </button>
               </td>
@@ -39,6 +52,10 @@ const ListaRoles = () => {
 
           ))
         }
+        <EditarRol 
+          show={showMostrarRol}
+          onHide={onHide}
+        />
       </tbody>
     </Table>
   );

@@ -1,15 +1,22 @@
 import React, { useState} from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
-import axios from '../../config/axios';
+import { useDispatch } from 'react-redux';
+import { iniciarSesionAction } from '../../redux/session/actions';
 
 const IniciarSesion = ({ show, onHide }) => {
-  const [usuario, setUsuario] = useState('');
+  // STATE LOCAL
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  // DISPATCH
+  const dispatch = useDispatch();
 
   const onSubmit = async e => {
     e.preventDefault();
-    const resultado = await axios.get('/users');
-    console.log('resultado :', resultado);
+    dispatch(iniciarSesionAction({ username, password }));
+    setUsername('');
+    setPassword('');
+    onHide();
   };
   
   return (
@@ -23,8 +30,8 @@ const IniciarSesion = ({ show, onHide }) => {
             <Form.Label>Correo / Usuario</Form.Label>
             <Form.Control 
               type="text" 
-              onChange={e => setUsuario(e.target.value)}
-              value={usuario}
+              onChange={e => setUsername(e.target.value)}
+              value={username}
               required
             />
           </Form.Group>

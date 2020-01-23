@@ -5,8 +5,6 @@ import { Table, Spinner } from 'react-bootstrap';
 import EditarUsuario from './EditarUsuario';
 
 const ListaUsuarios = () => {
-  
-  
   // DISPATCH
   const dispatch = useDispatch();
   

@@ -21,6 +21,7 @@ const NuevoRol = ({ show, onHide }) => {
     dispatch(registrarRolAction(rol));
     setName('');
     setLevel('');
+    onHide();
   }
 
   return (

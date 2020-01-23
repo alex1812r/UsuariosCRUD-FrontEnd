@@ -1,0 +1,7 @@
+export const BUSCAR_ROLES = 'BUSCAR_ROLES';
+export const BUSCAR_ROLES_EXITO = 'BUSCAR_ROLES_EXITO';
+export const BUSCAR_ROLES_ERROR = 'BUSCAR_ROLES_EXITO';
+
+export const CREAR_ROL = 'CREAR_ROL';
+export const CREAR_ROL_EXITO = 'CREAR_ROL_EXITO';
+export const CREAR_ROL_ERROR = 'CREAR_ROL_ERROR';  

@@ -1,0 +1,25 @@
+.nav-item > .nav-link{ 
+  font-size: 0.8rem;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-item > .nav-link:hover, .nav-item.active > .nav-link  {
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.nav-pills .nav-link {
+  border-bottom: 1px solid transparent;
+}
+
+.nav-pills .nav-link.active {
+  color: #1a1a1a;
+  background: none !important;
+  background-color: none !important;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.boton-link {
+  background: none;
+  border: none;
+  outline: none !important;
+}
